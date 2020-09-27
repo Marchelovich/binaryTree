@@ -12,7 +12,7 @@ class m200927_120732_create_binar_table extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('{{%binar}}', [
+        $this->createTable('{{%binary}}', [
             'id' => $this->primaryKey(11),
             'parent_id' => $this->integer(11),
             'position' => $this->integer(11),
@@ -22,12 +22,12 @@ class m200927_120732_create_binar_table extends Migration
 
         $this->createIndex(
             'nodeUnixIndx',
-            '{{%binar}}',
+            '{{%binary}}',
             ['parent_id', 'position'],
             true
         );
 
-        $this->insert('{{%binar}}', [
+        $this->insert('{{%binary}}', [
             /** @see \app\models\Binary::ROOT_NODE_ID */
             'id' => 1,
             'level' => 1,
@@ -39,6 +39,6 @@ class m200927_120732_create_binar_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%binar}}');
+        $this->dropTable('{{%binary}}');
     }
 }

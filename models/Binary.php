@@ -6,7 +6,6 @@ use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "binar".
  *
  * @property int $id
  * @property int|null $parent_id
@@ -29,7 +28,7 @@ class Binary extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'binar';
+        return 'binary';
     }
 
     /**

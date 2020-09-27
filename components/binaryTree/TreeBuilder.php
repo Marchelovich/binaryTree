@@ -3,7 +3,6 @@
 namespace app\components\binaryTree;
 
 use app\models\Binary;
-use phpDocumentor\Reflection\Types\This;
 use yii\db\Expression;
 
 class TreeBuilder
@@ -13,7 +12,7 @@ class TreeBuilder
      */
     public static function build5Levels(): bool
     {
-        $parentIds = [1];
+        $parentIds = [Binary::ROOT_NODE_ID];
 
         for ($i = 1; $i < 5; $i++) {
             $parentIds = self::buildLevel($parentIds);
@@ -22,7 +21,11 @@ class TreeBuilder
         return true;
     }
 
-    private static function buildLevel(array $parentIds)
+    /**
+     * @param array $parentIds
+     * @return array
+     */
+    private static function buildLevel(array $parentIds): array
     {
         $levelNodeIds = [];
         foreach ($parentIds as $id) {
@@ -32,7 +35,11 @@ class TreeBuilder
         return $levelNodeIds;
     }
 
-    private static function addChildren(int $id)
+    /**
+     * @param int $id
+     * @return array
+     */
+    private static function addChildren(int $id): array
     {
         return [
             (new Node($id, 1))->add(),

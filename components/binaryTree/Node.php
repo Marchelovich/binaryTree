@@ -3,9 +3,7 @@
 namespace app\components\binaryTree;
 
 use app\models\Binary;
-use Exception;
 use RuntimeException;
-use yii\db\ActiveRecord;
 
 class Node
 {
@@ -15,7 +13,6 @@ class Node
     private $position;
 
     /**
-     * BinarPoint constructor.
      * @param int $parentId
      * @param int $position
      */
